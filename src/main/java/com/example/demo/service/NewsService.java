@@ -11,7 +11,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class NewsService {
     @Autowired
     NewsRepository newsRepo;
@@ -61,7 +63,7 @@ public class NewsService {
 						NewsEntity newsE = new NewsEntity();
 
 						newsE.setTitle(articleTitle);
-						newsE.setUrl(articleUrl);
+						newsE.setUrl("https://finance.naver.com" + articleUrl);
 						newsRepo.save(newsE);
 						
 						System.out.println(articleTitle);
